@@ -28,8 +28,8 @@ runs:
     - name: Get uv version
       id: get-uv-version
       run: |
-        echo "uv-version=$(pipx run uv --version)"
-        echo "uv-version=$(pipx run uv --version)" >> $GITHUB_ENV
+        echo "UV_VERSION=$(pipx run uv --version)"
+        echo "UV_VERSION=$(pipx run uv --version)" >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Debug uv version
