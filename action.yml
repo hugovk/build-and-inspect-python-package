@@ -25,17 +25,11 @@ runs:
         python-version: "3.x"
         update-environment: false
 
-    - name: Get uv version
-      id: get-uv-version
-      run: |
-        echo "UV_VERSION=$(pipx run uv --version)" >> $GITHUB_OUTPUT
-      shell: bash
-
     - name: Cache uv
       uses: actions/cache@v4
       with:
         path: ~/.cache/uv
-        key: ${{ runner.os }}-uv-${{ steps.get-uv-version.outputs.UV_VERSION }}
+        key: ${{ runner.os }}-uv
 
     - name: Create venv for tools
       run: >
