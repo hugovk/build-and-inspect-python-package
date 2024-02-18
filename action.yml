@@ -28,7 +28,7 @@ runs:
     - name: Create venv for tools
       run: >
         pipx run
-        uv venv
+        uv venv --verbose
         /tmp/baipp
         --python ${{ steps.python-baipp.outputs.python-path }}
       shell: bash
@@ -36,7 +36,7 @@ runs:
     - name: Install our tools
       run: >
         pipx run
-        uv pip sync
+        uv pip sync --verbose
         ${{ github.action_path }}/requirements/tools.txt
       shell: bash
       env:
