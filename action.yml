@@ -28,7 +28,13 @@ runs:
     - name: Get uv version
       id: get-uv-version
       run: |
+        echo "uv-version=$(pipx run uv --version)"
         echo "uv-version=$(pipx run uv --version)" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Debug uv version
+      run: |
+        echo ${{ steps.get-uv-version.outputs.uv-version }}
       shell: bash
 
     - name: Cache uv
